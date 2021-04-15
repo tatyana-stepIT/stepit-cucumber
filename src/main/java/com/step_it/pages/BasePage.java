@@ -1,19 +1,21 @@
 package com.step_it.pages;
 
 import com.step_it.driver.driver.WebDriverManager;
-import com.step_it.utils.PropertyReader;
+import com.step_it.utils.PageLoader;
 import lombok.Getter;
-import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-@Log4j2
 public abstract class BasePage {
     @Getter
     private WebDriver driver;
 
+    @Getter
+    private PageLoader pageLoader;
+
     public BasePage() {
         driver = WebDriverManager.getDriver();
+        pageLoader = new PageLoader(driver);
         PageFactory.initElements(driver, this);
     }
 }

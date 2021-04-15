@@ -19,17 +19,16 @@ import static com.step_it.driver.driver.WebDriverManager.quitDriver;
 @AllArgsConstructor
 public class TestHook {
 
-    @Before(order = 0)
-    public void setup(Scenario scenario) {
-        log.info("Starting scenario: {}", scenario.getName());
-        log.info("Scenario tag {}", scenario.getSourceTagNames());
+    @Before(order = 0, value = "@Start")
+    public void startBrowser() {
         log.info("Opening the application login page");
         getDriver().get(PropertyReader.getConfigProperty("url"));
     }
 
-    @Before(order = 1)
-    public void secondSetup(Scenario scenario) {
-        log.info("I am second");
+    @Before
+    public void beforeScenario(Scenario scenario) {
+        log.info("Starting scenario: {}", scenario.getName());
+        log.info("Scenario tag {}", scenario.getSourceTagNames());
     }
 
     @AfterStep
@@ -40,9 +39,14 @@ public class TestHook {
         }
     }
 
-    @After
+    @After(order = 1)
     public void afterScenario(Scenario scenario) {
         log.info("Finished scenario: {}", scenario.getName());
+    }
+
+    @After(value = "@Stop")
+    public void driverTearDown(Scenario scenario) {
+        log.info("Quitting the browser");
         quitDriver();
     }
 }
