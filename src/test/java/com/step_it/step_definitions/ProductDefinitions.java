@@ -3,6 +3,7 @@ package com.step_it.step_definitions;
 import com.step_it.steps.CommonSteps;
 import com.step_it.steps.ProductSteps;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lombok.AllArgsConstructor;
 
@@ -21,4 +22,5 @@ public class ProductDefinitions {
     public void theAppIsOnProductsPage() {
         productSteps.checkPageIsDisplayed();
     }
+
 }

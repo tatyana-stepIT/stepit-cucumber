@@ -1,6 +1,6 @@
 package com.step_it.pages;
 
-import com.step_it.driver.driver.WebDriverManager;
+import com.step_it.driver.driver.LocalWebDriverManager;
 import com.step_it.utils.PageLoader;
 import lombok.Getter;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +14,7 @@ public abstract class BasePage {
     private PageLoader pageLoader;
 
     public BasePage() {
-        driver = WebDriverManager.getDriver();
+        driver = LocalWebDriverManager.getDriver();
         pageLoader = new PageLoader(driver);
         PageFactory.initElements(driver, this);
     }

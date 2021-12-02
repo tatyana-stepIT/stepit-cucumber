@@ -1,17 +1,18 @@
 package com.step_it.driver.driver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class WebDriverManager {
+public class LocalWebDriverManager {
 
     private static WebDriver driver = null;
 
-    private WebDriverManager() {
-    }
+    private LocalWebDriverManager() {}
+
 
     // Get a single instance of WebDriver
     public static WebDriver getDriver() {
@@ -27,7 +28,8 @@ public class WebDriverManager {
     }
 
     private static void startDriver() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
+        WebDriverManager.chromedriver().setup();
+//        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         EventFiringWebDriver driverWithEvents = new EventFiringWebDriver(driver);
@@ -35,3 +37,5 @@ public class WebDriverManager {
         driver = driverWithEvents;
     }
 }
+
+

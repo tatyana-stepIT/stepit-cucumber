@@ -15,7 +15,7 @@ public class CommonSteps {
     private MainPage mainPage;
     private LoginPage loginPage;
 
-//@AllArgsConstructor generates below code
+//@AllArgsConstructor generates below code --boilerplate
 //    public CommonSteps(MainPage mainPage, LoginPage loginPage) {
 //        this.mainPage = mainPage;
 //        this.loginPage = loginPage;

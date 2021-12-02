@@ -3,7 +3,7 @@ Feature: Login with valid credentials
 
   As customer I want to be able to login to application providing valid credentials
 
-  @Login @ABC-123 @Start
+  @Login @Start
   Scenario Outline: Login to app
     Given the app login page is open
     When the user enters correct <username> and <password>
@@ -23,7 +23,7 @@ Feature: Login with valid credentials
   Scenario Outline: Add product to cart
     Given the app is on products page
     When the user adds <product> to cart
-    Then the cart counter is updated by 2
+    Then the cart counter is updated by 1
 
     @Smoke
     Examples:

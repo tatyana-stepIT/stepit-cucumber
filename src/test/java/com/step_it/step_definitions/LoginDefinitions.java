@@ -17,4 +17,10 @@ public class LoginDefinitions {
     public void theUserLogsInToAppWithUsernameAndPassword(String username, String password) {
         loginSteps.login(username, password);
     }
+
+
+    @When("the user logs out")
+    public void theUserLogsOut() {
+        loginSteps.logout();
+    }
 }

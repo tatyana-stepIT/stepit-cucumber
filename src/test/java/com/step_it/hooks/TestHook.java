@@ -1,6 +1,5 @@
 package com.step_it.hooks;
 
-
 import com.step_it.utils.PropertyReader;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
@@ -11,8 +10,8 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
-import static com.step_it.driver.driver.WebDriverManager.getDriver;
-import static com.step_it.driver.driver.WebDriverManager.quitDriver;
+import static com.step_it.driver.driver.LocalWebDriverManager.getDriver;
+import static com.step_it.driver.driver.LocalWebDriverManager.quitDriver;
 
 
 @Log4j2
